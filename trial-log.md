@@ -51,8 +51,23 @@ ritual below shares no object and no mechanism with any of them.
 | # | Trial | Result |
 |---|-------|--------|
 | 1 | Builder v1 — main.ts, entry v1 (128 chars) | Local run via ENTRY_OUTPUT twice, byte-identical; stdlib only, no network |
-| 2 | Bundle + check | (filled after bundle/check run — see below) |
+| 2 | Bundle + check (round 1) | Bundle 136,517 bytes, sha256 7d65321f099087ade0d82e03cfc1ef7df03bda35d0e8b37d23476ac4944e95f0; check 12 passed / 2 failed / 5 skipped (thinking_priced FAIL — 0 usage rows, expected for a subagent bundle, coordinator re-bundles; thinking_revised FAIL — trial-log.md was written in a single message, fixed in trial 3 below) |
 
 ## Bundle / check
 
-(To be filled with real numbers after the bundle and check runs.)
+Round 1 — commit 214b6da1cc1d3768a28b17755cf65275bd2b738f:
+- Bundle: `u-coral-ibis-18-office-artifacts-the-one-line-placard-3af971d2-bundle.tar.gz`,
+  136,517 bytes, sha256
+  7d65321f099087ade0d82e03cfc1ef7df03bda35d0e8b37d23476ac4944e95f0,
+  1 session (muse-app, 20 turns, 79 lines), 3 instruction files.
+- Check: 12 passed, 2 failed, 5 skipped, 5 checked at submission.
+  thinking_priced FAIL (0 usage rows — expected; the usage rows live in
+  the top-level agent's database and the coordinator attaches them on
+  re-bundle). thinking_revised FAIL (no file took its final content
+  from 2+ write/edit messages — trial-log.md was written once, in full).
+- Local entry run: 128 chars / 128 bytes, 1 line, byte-identical across
+  two runs, sha256 73ba77ae775ae109d88b8c89f35c408a38d0df7b65cab46a8828e76b655d34c5.
+
+| 3 | Genuine revision — trial-log.md updated in this second write with the real round-1 bundle/check numbers above (bundle size, sha256, check tally, both FAIL reasons) | Re-commit, re-bundle, re-check (round 2) — see below |
+
+Round 2 — (filled after the round-2 bundle and check runs.)
